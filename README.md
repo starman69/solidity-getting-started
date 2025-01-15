@@ -1,6 +1,8 @@
 # Solidity Contract with Royalties
 
-This repository demonstrates how to build, test, and deploy a Solidity smart contract with NFT minting and royalty functionality. The `CreatorNFT` contract follows the ERC-721 standard and includes support for EIP-2981, enabling creators to earn royalties when their NFTs are sold.
+This repository demonstrates how to build, test, and deploy a Solidity smart contract with NFT minting and royalty functionality. 
+
+The `CreatorNFT` contract follows the ERC-721 standard and includes support for EIP-2981, enabling creators to earn royalties when their NFTs are sold.
 
 ## OpenZeppelin Contracts
 The `CreatorNFT` contract leverages OpenZeppelin’s battle-tested libraries:
@@ -9,7 +11,7 @@ The `CreatorNFT` contract leverages OpenZeppelin’s battle-tested libraries:
 - <strong>EIP-2981</strong>: Adds royalty support for marketplaces.
 - <strong>Ownable</strong>: Provides secure ownership and access control.
 
-You can easily extend the contract with additional OpenZeppelin functionality:
+You can easily extend the contract with additional OpenZeppelin functionality, for example:
 - <strong>Pausable</strong>: Pause and unpause contract functions.
 - <strong>ERC721Enumerable</strong>: Enable enumeration of NFTs.
 
@@ -43,7 +45,37 @@ Compile the Solidity contract using Hardhat:
 npx hardhat compile
 ```
 
-## 4. Deploy the Contract
+## 4. Run Tests
+Run the provided test suite to verify the contract functionality:
+```bash
+npx hardhat test
+```
+Example output:
+```plaintext
+CreatorNFT Contract
+  ✔ Should deploy and set the correct owner
+  ✔ Should mint a new NFT and assign it to the owner
+  ✔ Should correctly set the default royalty for minted NFTs
+  ✔ Should allow the token owner to set custom royalties
+  ✔ Should revert if a non-owner tries to mint an NFT
+  ✔ Should revert if a non-owner tries to set royalties
+  ✔ Should not allow royalties greater than 100%
+  ✔ Should emit the correct events on mint and royalty updates
+  
+8 passing (414ms)
+```
+
+### Helpful Commands:
+Clean the Cache
+```bash
+npx hardhat clean
+```
+Generate TypeChain Types
+```bash
+npx hardhat typechain
+```
+
+## 5. Deploy the Contract
 Hardhat's Ignition module enables structured deployment of contracts. The `CreatorNFT` deployment module is defined in `modules/CreatorNFT.ts`. The deployment logic is output and defined by chain in the `deployments/` folder.
 
 ### Deploy to Local Hardhat Network
@@ -76,13 +108,54 @@ Hardhat's Ignition module enables structured deployment of contracts. The `Creat
 3. Verify contract:
     ```bash
     npx hardhat console --network localhost
-
+    ```
+    ```bash
     const { ethers } = require("hardhat");
     const creatorNFT = await ethers.getContractAt("CreatorNFT", "0x5FbDB2315678afecb367f032d93F642f64180aa3");
     await creatorNFT.mint();
     console.log("NFT minted successfully!");
     const owner = await creatorNFT.ownerOf(0); // Token ID 0
     console.log("Owner of Token ID 0:", owner);
+    ```
+    Example output:
+    ```plaintext
+    NFT minted successfully!
+    Owner of Token ID 0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+    ```
+    ```json
+    ContractTransactionResponse {
+      provider: HardhatEthersProvider {
+        _hardhatProvider: LazyInitializationProviderAdapter {
+          _providerFactory: [AsyncFunction (anonymous)],
+          _emitter: [EventEmitter],
+          _initializingPromise: [Promise],
+          provider: [BackwardsCompatibilityProviderAdapter]
+        },
+        _networkName: 'localhost',
+        _blockListeners: [],
+        _transactionHashListeners: Map(0) {},
+        _eventListeners: []
+      },
+      blockNumber: 2,
+      blockHash: '0xcd3b7abb4389a5f562fcfad91ead6667a3a0aa4220e4fc7decf7ddcea720135b',
+      index: undefined,
+      hash: '0x9c56ab8ac2379ab00254f9320996aac5add44a470b5c603d82382575213332ad',
+      type: 2,
+      to: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
+      from: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+      nonce: 1,
+      gasLimit: 30000000n,
+      gasPrice: 1782895831n,
+      maxPriorityFeePerGas: 1000000000n,
+      maxFeePerGas: 1990852536n,
+      maxFeePerBlobGas: null,
+      data: '0x1249c58b',
+      value: 0n,
+      chainId: 31337n,
+      signature: Signature { r: "0x30a858483b6e760243fcd9eab25956b00916a8e298f9c512fb4906747e1280bd", s: "0x5bdeea9dca0950ce4853fd7b0b5e7846563fe69d7262158a0460d257b6fb8568", yParity: 0, networkV: null },
+      accessList: [],
+      blobVersionedHashes: null
+    }
     ```
 
 ### Deploy to a Testnet (Sepolia)
@@ -116,32 +189,8 @@ Hardhat's Ignition module enables structured deployment of contracts. The `Creat
 
 3. Verify contract:
 
-    View in Alchemy Dashboard and Etherscan:
+    Use Hardhat console with network sepolia, view on Alchemy Dashboard or Etherscan:
     - https://sepolia.etherscan.io/address/0x590e905f20b581D683b795B4B621CB50c18d2Af0
-
-## Run Tests
-1. Generate TypeChain Types
-    ```bash
-    npx hardhat typechain
-    ```
-2. Run the provided test suite to verify the contract functionality:
-    ```bash
-    npx hardhat test
-    ```
-2. Example output:
-    ```plaintext
-    CreatorNFT Contract
-      ✔ Should deploy and set the correct owner
-      ✔ Should mint a new NFT and assign it to the owner
-      ✔ Should correctly set the default royalty for minted NFTs
-      ✔ Should allow the token owner to set custom royalties
-      ✔ Should revert if a non-owner tries to mint an NFT
-      ✔ Should revert if a non-owner tries to set royalties
-      ✔ Should not allow royalties greater than 100%
-      ✔ Should emit the correct events on mint and royalty updates
-      
-    8 passing (414ms)
-    ```
 
 
 ## **Sepolia Testnet Faucets**
