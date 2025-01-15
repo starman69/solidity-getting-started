@@ -122,7 +122,7 @@ Hardhat's Ignition module enables structured deployment of contracts. The `Creat
     NFT minted successfully!
     Owner of Token ID 0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
     ```
-    ```json
+    ```plaintext
     ContractTransactionResponse {
       provider: HardhatEthersProvider {
         _hardhatProvider: LazyInitializationProviderAdapter {
