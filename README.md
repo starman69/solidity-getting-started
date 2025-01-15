@@ -56,13 +56,16 @@ CreatorNFT Contract
   ✔ Should deploy and set the correct owner
   ✔ Should mint a new NFT and assign it to the owner
   ✔ Should correctly set the default royalty for minted NFTs
+  ✔ Should correctly set and retrieve tokenURI during minting
   ✔ Should allow the token owner to set custom royalties
   ✔ Should revert if a non-owner tries to mint an NFT
   ✔ Should revert if a non-owner tries to set royalties
+  ✔ Should revert when querying tokenURI for a nonexistent token
+  ✔ Should revert if a non-owner tries to set a tokenURI
   ✔ Should not allow royalties greater than 100%
   ✔ Should emit the correct events on mint and royalty updates
   
-8 passing (414ms)
+11 passing (495ms)
 ```
 
 ### Helpful Commands:
@@ -112,15 +115,21 @@ Hardhat's Ignition module enables structured deployment of contracts. The `Creat
     ```bash
     const { ethers } = require("hardhat");
     const creatorNFT = await ethers.getContractAt("CreatorNFT", "0x5FbDB2315678afecb367f032d93F642f64180aa3");
-    await creatorNFT.mint();
+    await creatorNFT.mint("ipfs://token-metadata");
     console.log("NFT minted successfully!");
     const owner = await creatorNFT.ownerOf(0); // Token ID 0
     console.log("Owner of Token ID 0:", owner);
+    const tokenURI = await creatorNFT.tokenURI(0);
+    console.log("URI of Token ID 0:", tokenURI);
+    const royaltyInfo = await creatorNFT.royaltyInfo(0, 10000); // salePrice to check
+    console.log("Royalty info of Token ID 0:", royaltyInfo);
     ```
     Example output:
     ```plaintext
     NFT minted successfully!
     Owner of Token ID 0: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+    URI of Token ID 0: ipfs://token-metadata
+    Royalty info of Token ID 0: Result(2) [ '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266', 500n ]
     ```
     ```plaintext
     ContractTransactionResponse {
@@ -152,7 +161,12 @@ Hardhat's Ignition module enables structured deployment of contracts. The `Creat
       data: '0x1249c58b',
       value: 0n,
       chainId: 31337n,
-      signature: Signature { r: "0x30a858483b6e760243fcd9eab25956b00916a8e298f9c512fb4906747e1280bd", s: "0x5bdeea9dca0950ce4853fd7b0b5e7846563fe69d7262158a0460d257b6fb8568", yParity: 0, networkV: null },
+      signature: Signature { 
+        r: "0x30a858483b6e760243fcd9eab25956b00916a8e298f9c512fb4906747e1280bd", 
+        s: "0x5bdeea9dca0950ce4853fd7b0b5e7846563fe69d7262158a0460d257b6fb8568", 
+        yParity: 0, 
+        networkV: null 
+      },
       accessList: [],
       blobVersionedHashes: null
     }
