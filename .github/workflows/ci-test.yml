@@ -20,5 +20,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Run Tests
-        run: npx hardhat test
+        run: npx hardhat test --network hardhat
 
