@@ -22,6 +22,6 @@ jobs:
       - name: Run Tests
         env:
           ALCHEMY_API_URL: "http://localhost"
-          SEPOLIA_PRIVATE_KEY: "0xaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          SEPOLIA_PRIVATE_KEY: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
         run: npx hardhat test
 
