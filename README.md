@@ -7,25 +7,25 @@ The `CreatorNFT` contract follows the ERC-721 standard and includes support for 
 ## OpenZeppelin Contracts
 The `CreatorNFT` contract leverages OpenZeppelin’s battle-tested libraries:
 
-- <strong>ERC-721</strong>: Implements the standard for non-fungible tokens.
-- <strong>EIP-2981</strong>: Adds royalty support for marketplaces.
-- <strong>Ownable</strong>: Provides secure ownership and access control.
+- **ERC-721**: Implements the standard for non-fungible tokens.
+- **EIP-2981**: Adds royalty support for marketplaces.
+- **Ownable**: Provides secure ownership and access control.
 
 You can easily extend the contract with additional OpenZeppelin functionality, for example:
-- <strong>Pausable</strong>: Pause and unpause contract functions.
-- <strong>ERC721Enumerable</strong>: Enable enumeration of NFTs.
+- **Pausable**: Pause and unpause contract functions.
+- **ERC721Enumerable**: Enable enumeration of NFTs.
 
 ## Getting Started
 Follow these steps to set up, deploy, and test the `CreatorNFT` contract.
 
 ### Prerequisites
-- <strong>Node.js</strong>: Install Node.js (version 22 or later).
-- <strong>npm</strong>: Ensure npm is installed with Node.js.
-- <strong>Hardhat</strong>: A development environment for Ethereum.
+- **Node.js**: Install Node.js (version 22 or later).
+- **npm**: Ensure npm is installed with Node.js.
+- **Hardhat**: A development environment for Ethereum.
 
 To complete a Testnet deploy:
-  - <strong>Alchemy API key</strong>: Free tier node provider, can modify easily for Infura.
-  - <strong>Private key</strong>: Your wallet setup with some ETH on Sepolia, faucet info and links provided below.
+  - **Alchemy API key**: Free tier node provider, can modify easily for Infura.
+  - **Private key**: Your wallet setup with some ETH on Sepolia, faucet info and links provided below.
 
 ## 1. Clone the Repository
 ```bash
@@ -204,14 +204,25 @@ Hardhat's Ignition module enables structured deployment of contracts. The `Creat
 3. Verify contract:
 
     Use Hardhat console with network sepolia, view on Alchemy Dashboard or Etherscan:
-    - https://sepolia.etherscan.io/address/0x590e905f20b581D683b795B4B621CB50c18d2Af0
+    - https://sepolia.etherscan.io/address/0x76053BBEeA8c1952f7884BF0Dfc2bCc6D9294d8D
 
 
-## **Sepolia Testnet Faucets**
+## Test Minting with IPFS
+To mint your NFT on a testnet and host its metadata and image on an IPFS provider e.g. Pinata:
+1. Upload the Image to IPFS e.g. `nft/tech-owl.png`.
+2. Update the `image` field in the metadata file with the IPFS URL of the uploaded image.
+3. Upload the Metadata File to IPFS e.g. `nft/tech-owl-metadata.json`.
+4. Update the `TOKEN_URI` const in the minting script e.g. `scripts/mint.js` with the IPFS URL of the uploaded metadata file.
+5. Test Minting on a testnet
+    - Deploy your contract to a testnet (e.g., Sepolia) if not already deployed.
+    - Run the minting script. The script will use the `TOKEN_URI` pointing to your metadata and mint an NFT on the testnet.
+    - Verify the NFT. Review on Etherscan and Rarible Testnet e.g. https://testnet.rarible.com/token/0x76053bbeea8c1952f7884bf0dfc2bcc6d9294d8d:0
+
+## Sepolia Testnet Faucets
 
 When deploying or testing on the Sepolia testnet, you’ll need Sepolia ETH to pay for gas. Most faucets have daily or hourly limits per address. 
 
-<strong>Testnet ETH has no real-world value and is for development purposes only.</strong>
+**Testnet ETH has no real-world value and is for development purposes only.**
 
 Here are some reliable faucets to obtain free Sepolia ETH:
 - [Google Sepolia Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
@@ -234,45 +245,45 @@ Here are some reliable faucets to obtain free Sepolia ETH:
   - Community-maintained faucet for developers.
   - Limited daily allowance per address.
 
-## **References**
+## References
 
-### **General Resources**
+### General Resources
 - [Ethereum Official Website](https://ethereum.org/en/)
 - [Ethers.js Documentation](https://docs.ethers.org/)
 
-### **Solidity**
+### Solidity
 - [Solidity Documentation](https://docs.soliditylang.org/en/latest/)
 - [Solidity by Example](https://solidity-by-example.org/)
 - [Remix IDE](https://remix.ethereum.org/)
 
-### **Hardhat**
+### Hardhat
 - [Hardhat Official Documentation](https://hardhat.org/)
 - [Hardhat GitHub Repository](https://github.com/NomicFoundation/hardhat)
 - [Hardhat Plugins](https://hardhat.org/plugins/)
 - [Hardhat Toolbox](https://hardhat.org/hardhat-toolbox/)
 
-### **OpenZeppelin**
+### OpenZeppelin
 - [OpenZeppelin Contracts Documentation](https://docs.openzeppelin.com/contracts)
 - [OpenZeppelin GitHub Repository](https://github.com/OpenZeppelin/openzeppelin-contracts)
 - [OpenZeppelin Wizard](https://wizard.openzeppelin.com/)
 
-### **Testnets and Deployment**
+### Testnets and Deployment
 - [Alchemy API Key Setup](https://www.alchemy.com/)
 - [Infura API Key Setup](https://infura.io/)
 - [Sepolia Testnet](https://sepolia.dev/)
 - [Goerli Testnet](https://goerli.net/)
 
-### **Security and Best Practices**
+### Security and Best Practices
 - [Smart Contract Security Best Practices](https://consensys.github.io/smart-contract-best-practices/)
 - [OpenZeppelin Defender](https://openzeppelin.com/defender/)
 - [Trail of Bits Slither](https://github.com/crytic/slither)
 - [MythX](https://mythx.io/)
 
-### **NFTs and Standards**
+### NFTs and Standards
 - [ERC-721 Standard](https://eips.ethereum.org/EIPS/eip-721)
 - [EIP-2981 Royalty Standard](https://eips.ethereum.org/EIPS/eip-2981)
 
-### **Useful Tools**
+### Useful Tools
 - [Chainlist (Connect Wallets to Networks)](https://chainlist.org/)
 - [Etherscan (Ethereum Block Explorer)](https://etherscan.io/)
 - [Sepolia Etherscan](https://sepolia.etherscan.io/)

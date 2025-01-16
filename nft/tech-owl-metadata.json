@@ -1,0 +1,11 @@
+{
+  "name": "Tech Owl",
+  "description": "A cartoon owl inspired by a professional software architect. The owl wears glasses and sits confidently on a keyboard, reflecting a tech-savvy and approachable personality.",
+  "image": "ipfs://bafybeib2j2aurcvcaclcpgqxn24kyjkgnd357miwsndkfvcc6fhzy5aply",
+  "attributes": [
+    { "trait_type": "Glasses", "value": "Yes" },
+    { "trait_type": "Pose", "value": "Confident on Keyboard" },
+    { "trait_type": "Theme", "value": "Tech" },
+    { "trait_type": "Profession", "value": "Software Architect" }
+  ]
+}
