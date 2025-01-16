@@ -212,10 +212,10 @@ To mint your NFT on a testnet and host its metadata and image on an IPFS provide
 1. Upload the Image to IPFS e.g. `nft/tech-owl.png`.
 2. Update the `image` field in the metadata file with the IPFS URL of the uploaded image.
 3. Upload the Metadata File to IPFS e.g. `nft/tech-owl-metadata.json`.
-4. Update the `TOKEN_URI` const in the minting script e.g. `scripts/mint.js` with the IPFS URL of the uploaded metadata file.
+4. Update the `TOKEN_URI` const in the minting script e.g. `scripts/mint.ts` with the IPFS URL of the uploaded metadata file.
 5. Test Minting on a testnet
     - Deploy your contract to a testnet (e.g., Sepolia) if not already deployed.
-    - Run the minting script. The script will use the `TOKEN_URI` pointing to your metadata and mint an NFT.
+    - Run the minting script. `npx ts-node scripts/mint.ts` The script will use the `TOKEN_URI` pointing to your metadata and mint an NFT.
     - Verify the NFT. Review on Etherscan and Rarible Testnet e.g. https://testnet.rarible.com/token/0x76053bbeea8c1952f7884bf0dfc2bcc6d9294d8d:0
 
 ## Sepolia Testnet Faucets

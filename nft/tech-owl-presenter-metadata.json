@@ -1,0 +1,12 @@
+{
+  "name": "Tech Owl Presenter",
+  "description": "A playful cartoon owl inspired by a professional software architect, confidently presenting with one wing raised. This tech-savvy owl wears glasses and stands on a background with abstract circuit patterns, symbolizing its expertise.",
+  "image": "ipfs://bafybeicgl23s75v4qdnsjcvdv7ayeaw77cerroa7w6r5ylk2udk7kvr7r4",
+  "attributes": [
+    { "trait_type": "Glasses", "value": "Yes" },
+    { "trait_type": "Pose", "value": "Presenting" },
+    { "trait_type": "Theme", "value": "Tech" },
+    { "trait_type": "Accessory", "value": "Tie" },
+    { "trait_type": "Mood", "value": "Confident" }
+  ]
+}
