@@ -19,7 +19,7 @@ You can easily extend the contract with additional OpenZeppelin functionality, f
 Follow these steps to set up, deploy, and test the `CreatorNFT` contract.
 
 ### Prerequisites
-- <strong>Node.js</strong>: Install Node.js (version 16 or later).
+- <strong>Node.js</strong>: Install Node.js (version 22 or later).
 - <strong>npm</strong>: Ensure npm is installed with Node.js.
 - <strong>Hardhat</strong>: A development environment for Ethereum.
 
